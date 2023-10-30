@@ -74,6 +74,39 @@ app.post("/createBlog", async (req, res) => {
   });
 });
 
+//UPDATE BLOG API
+app.patch("/blogs/:id", async (req, res) => {
+  const id = req.params.id;
+  const title = req.body.title;
+  const subTitle = req.body.subTitle;
+  const description = req.body.description;
+  // const {title,subTitle,description} = req.body   Alternative
+
+  await Blog.findByIdAndUpdate(id, {
+    title: title,
+    subTitle: subTitle,
+    description: description,
+  });
+  res.status(200).json({
+    message: "Blog updated succesfully",
+  });
+});
+
+//DELETE API
+app.delete("/blogs/:id", async (req, res) => {
+  const id = req.params.id;
+
+  await Blog.findByIdAndDelete(id);
+
+  res.status(200).json({
+    message: "Blog Deleted Successfully",
+  });
+});
+
+
+
+
+
 app.listen(3000, () => {
-  console.log("Nodejs has started aat port 3000");
+  console.log("Nodejs has started at port 3000");
 });
