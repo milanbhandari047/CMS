@@ -59,7 +59,7 @@ app.get("/blogs/:id", async (req, res) => {
 });
 
 //CREATE BLOG API
-app.post("/createBlog", async (req, res) => {
+app.post("/blogs", async (req, res) => {
   //Insert to database logic goes here
 
   await Blog.create({
