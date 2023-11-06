@@ -4,6 +4,11 @@ const Blog = require("./model/blogModel");
 const express = require("express");
 const app = express();
 
+const cors = require("cors")
+app.use(cors({
+  origin: "http://localhost:5173"
+}));
+
 //nodejs lai form batw aako data parse gar vaneko ho
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,7 +38,7 @@ app.get("/blogs", async (req, res) => {
     res.json({
       // status:200,
       message: "Blogs fetch successfully",
-      data: blogs,
+    blogs: blogs,
     });
   }
 });
@@ -53,7 +58,7 @@ app.get("/blogs/:id", async (req, res) => {
     res.json({
       status: 200,
       message: "Blog fetched successfully",
-      data: blog,
+      blogs: blog,
     });
   }
 });
