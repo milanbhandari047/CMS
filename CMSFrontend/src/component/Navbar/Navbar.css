@@ -1,0 +1,28 @@
+/* Style the navbar */
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+  background-color: #444;
+  font-size: 18px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 20px;
+}
+
+/* Responsive design */
+/* @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+} */
