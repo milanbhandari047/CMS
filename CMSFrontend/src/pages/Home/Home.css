@@ -44,6 +44,7 @@
   cursor: pointer;
   border-radius: 5px;
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .card-button:hover {
