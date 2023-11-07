@@ -73,8 +73,8 @@ app.post("/blogs", async (req, res) => {
     description: req.body.description,
   });
 
-  res.json({
-    status: 200,
+  res.status(200).json({
+  
     message: "Blog created successfully",
   });
 });
