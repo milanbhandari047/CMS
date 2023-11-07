@@ -1,37 +1,44 @@
-import React, { useState } from "react";
-import "./CreateBlog.css";
-import Navbar from "../../component/Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "./CreateBlog.css"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../component/Navbar/Navbar";
+
 
 const CreateBlog = () => {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [description, setDescription] = useState("");
+
+  const [data, setData] = useState({
+    title: "",
+    subTitle: "",
+    description: "",
+  });
 
   const createBlog = async (e) => {
     e.preventDefault();
+    // send above states data to api
+ 
+await axios.post("http://localhost:3000/blogs", data);
+  
+    navigate("/")
 
-    const data = {
-      title: title,
-      subTitle: subTitle,
-      description: description,
-    };
-    const response = await axios.post("http://localhost:3000/blogs", data);
-    if(response.status == 201){
-        alert(response.data.message)
-        navigate("/")
-    }else{
-        alert("Something went wrong")
-    }
   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
 
+
+
+
+  };
   return (
     <>
-      <Navbar />
+    <Navbar/>
       <div className="form-container">
-        <h2>Create Blog</h2>
+        <h2>Form Title</h2>
         <form onSubmit={createBlog}>
           <div className="form-group">
             <label htmlFor="title">Title</label>
@@ -40,7 +47,7 @@ const CreateBlog = () => {
               id="title"
               name="title"
               placeholder="Enter Title"
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={handleChange}
             />
           </div>
           <div className="form-group">
@@ -48,9 +55,9 @@ const CreateBlog = () => {
             <input
               type="text"
               id="subtitle"
-              name="subtitle"
+              name="subTitle"
               placeholder="Enter Subtitle"
-              onChange={(e) => setSubTitle(e.target.value)}
+              onChange={handleChange}
             />
           </div>
           <div className="form-group">
@@ -58,9 +65,9 @@ const CreateBlog = () => {
             <textarea
               id="description"
               name="description"
-              rows="8"
+              rows="4"
               placeholder="Enter Description"
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={handleChange}
             ></textarea>
           </div>
           <button className="btn" type="submit">
@@ -73,3 +80,5 @@ const CreateBlog = () => {
 };
 
 export default CreateBlog;
+
+
