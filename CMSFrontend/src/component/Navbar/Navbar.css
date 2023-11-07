@@ -14,8 +14,12 @@
   text-decoration: none;
   color: #fff;
   margin: 0 20px;
+  cursor: pointer;
 }
 
+a:hover{
+  color: #e2d7d7;
+}
 /* Responsive design */
 /* @media (max-width: 768px) {
     .navbar {
