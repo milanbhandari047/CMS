@@ -30,12 +30,13 @@ app.get("/blogs", async (req, res) => {
   const blogs = await Blog.find();
   //check if blogs contains data or not
   if (blogs.length == 0) {
-    res.status(404).json({
+    res.json({
+      // status:404,
       message: "Empty BLog",
     });
   } else {
-    res.status(200).json({
-
+    res.json({
+      // status:200,
       message: "Blogs fetch successfully",
     blogs: blogs,
     });
@@ -72,7 +73,8 @@ app.post("/blogs", async (req, res) => {
     description: req.body.description,
   });
 
-  res.status(201).json({
+  res.json({
+    status: 200,
     message: "Blog created successfully",
   });
 });
