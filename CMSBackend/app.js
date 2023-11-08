@@ -46,9 +46,9 @@ app.get("/blogs", async (req, res) => {
 //GET API => /blogs/:id (single blog)
 app.get("/blogs/:id", async (req, res) => {
   const id = req.params.id;
-  const blog = await Blog.find({ _id: id });
+  // const blog = await Blog.find({ _id: id });
   //Alternative
-  //  const blog = await Blog.findById(id)
+   const blog = await Blog.findById(id)
 
   if (blog.length == 0) {
     res.status(404).json({
