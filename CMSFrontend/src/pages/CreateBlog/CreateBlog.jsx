@@ -18,7 +18,7 @@ const CreateBlog = () => {
     e.preventDefault();
     // send above states data to api
  
-await axios.post("http://localhost:3000/blogs", data);
+await axios.post("https://cmsbackend-n0ek.onrender.com/blogs", data);
   
     navigate("/")
 

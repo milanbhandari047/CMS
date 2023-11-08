@@ -11,7 +11,7 @@ const Home = () => {
   // api call here
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/blogs");
+      const response = await axios.get("https://cmsbackend-n0ek.onrender.com/blogs");
 
       if (response.status == 200) {
         setBlogs(response.data.blogs);
