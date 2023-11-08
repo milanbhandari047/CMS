@@ -9,7 +9,7 @@ require("dotenv").config()
 
 const cors = require("cors")
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: "*"
 }));
 
 //nodejs lai form batw aako data parse gar vaneko ho

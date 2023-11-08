@@ -10,7 +10,7 @@ const SingleBlog = () => {
     const [blog,setBlog] = useState({})
     // DELETE BLOG
     const deleteBlog = async ()=>{
-       const response =  await axios.delete("http://localhost:3000/blogs/" + id)
+       const response =  await axios.delete("https://cmsbackend-n0ek.onrender.com" + id)
        if(response.status ==200){
         navigate("/")
        }
@@ -18,7 +18,7 @@ const SingleBlog = () => {
 
     // FETCH SINGLE BLOG 
     const fetchSingleBlog = async()=>{
-        const response = await axios.get("http://localhost:3000/blogs/" + id)
+        const response = await axios.get("https://cmsbackend-n0ek.onrender.com" + id)
       
         if(response.status ==200){
             setBlog(response.data.blogs)
