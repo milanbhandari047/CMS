@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-exports.connectDatabase = async () => {
+exports.connectDatabase = async (URI) => {
   // connecting  to database
   await mongoose.connect(
-    "mongodb+srv://milanbhandari440:hello@cluster0.tdwg6qm.mongodb.net/?retryWrites=true&w=majority"
+   URI
   );
   console.log("Database connected successfully");
 };

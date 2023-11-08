@@ -4,6 +4,9 @@ const Blog = require("./model/blogModel");
 const express = require("express");
 const app = express();
 
+// TELL NODE TO USE DOTENV
+require("dotenv").config()
+
 const cors = require("cors")
 app.use(cors({
   origin: "http://localhost:5173"
@@ -14,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Database Connection Function
-connectDatabase();
+connectDatabase(process.env.MONGO_URI);
 
 //GET API
 app.get("/", (req, res) => {
@@ -111,7 +114,7 @@ app.delete("/blogs/:id", async (req, res) => {
 
 
 
-
-app.listen(3000, () => {
-  console.log("Nodejs has started at port 3000");
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+  console.log(`Nodejs has started at PORT ${PORT}`);
 });
