@@ -45,6 +45,7 @@ Style the card */
     border-radius: 5px;
     margin-top: 10px;
     text-decoration: none;
+    margin-left: 10px;
   }
   
   .card-button:hover {

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Navbar from "../../component/Navbar/Navbar"
 import "./SingleBlog.css"
 
@@ -19,7 +19,7 @@ const SingleBlog = () => {
     // FETCH SINGLE BLOG 
     const fetchSingleBlog = async()=>{
         const response = await axios.get("http://localhost:3000/blogs/" + id)
-
+      
         if(response.status ==200){
             setBlog(response.data.blogs)
         }
@@ -40,6 +40,7 @@ const SingleBlog = () => {
               <h3 className="card-subtitle">{blog.subTitle}</h3>
               <p className="card-description">{blog.description} </p>
         <button onClick={deleteBlog} className="card-button" >Delete</button>
+        <Link to={`/updateBlog/${blog._id}`}   className="card-button">Update</Link>
         </div>
          </div>
 </>
