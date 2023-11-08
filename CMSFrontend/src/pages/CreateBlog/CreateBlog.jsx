@@ -14,7 +14,7 @@ const CreateBlog = () => {
     description: "",
   });
 
-  const createBlog = async (e) => {
+  const createBlog = async () => {
     e.preventDefault();
     // send above states data to api
  
