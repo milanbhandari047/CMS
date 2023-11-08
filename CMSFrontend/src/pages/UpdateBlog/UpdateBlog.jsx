@@ -28,7 +28,7 @@ const UpdateBlog = () => {
   // update blog 
   const updateBlog = async(e)=>{
     e.preventDefault()
-    const response = await axios.patch("https://cmsbackend-n0ek.onrender.com/"+id,blog)
+    const response = await axios.patch("http://localhost:3000/blogs/"+id,blog)
     if(response.status == 200){
       navigate("/singleBlog/" + id)
   }
@@ -37,7 +37,7 @@ const UpdateBlog = () => {
 
   // FETCH SINGLE BLOG
   const fetchSingleBlog = async () => {
-    const response = await axios.get("https://cmsbackend-n0ek.onrender.com/" + id);
+    const response = await axios.get("http://localhost:3000/blogs/" + id);
     if (response.status == 200) {
       setBlog(response.data.blogs);
     }
