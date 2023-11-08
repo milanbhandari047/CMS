@@ -9,7 +9,7 @@ require("dotenv").config()
 
 const cors = require("cors")
 app.use(cors({
-  origin: ["http://localhost:3000","https://cms-milanbhandari047.vercel.app/"]
+  origin: ["http://localhost:5173","https://cms-milanbhandari047.vercel.app/"]
 }));
 
 //nodejs lai form batw aako data parse gar vaneko ho
