@@ -38,7 +38,7 @@ await axios.post("http://localhost:3000/blogs", data);
     <>
     <Navbar/>
       <div className="form-container">
-        <h2>Form Title</h2>
+        <h2>Create Blog</h2>
         <form onSubmit={createBlog}>
           <div className="form-group">
             <label htmlFor="title">Title</label>
