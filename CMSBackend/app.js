@@ -9,7 +9,7 @@ require("dotenv").config()
 
 const cors = require("cors")
 app.use(cors({
-  origin: "*"
+  origin: "https://cms-neon.vercel.app/"
 }));
 
 //nodejs lai form batw aako data parse gar vaneko ho
